@@ -1,0 +1,50 @@
+﻿<Window x:Class="GraficadorSeñales.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GraficadorSeñales"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="756.161" Width="1074.5">
+    <Grid HorizontalAlignment="Left" Width="1064" Margin="0,0,0,-2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="121*"/>
+            <RowDefinition Height="146*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="txtTiempoInicial" HorizontalAlignment="Left" Height="23" Margin="10,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsEnabled="False" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"><Run Text="Tiempo inicial"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="txtTiempoFinal" HorizontalAlignment="Left" Height="23" Margin="144,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsEnabled="False" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="144,10,0,0" TextWrapping="Wrap" Text="Tiempo final:" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="txtFrecuenciaMuestreo" HorizontalAlignment="Left" Height="23" Margin="282,31,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsEnabled="False" TextAlignment="Center" />
+        <TextBlock HorizontalAlignment="Left" Margin="282,10,0,0" TextWrapping="Wrap" Text="Frecuencia de muestreo:" VerticalAlignment="Top" Width="148"/>
+        <Button x:Name="btnGraficar" Content="Graficar " HorizontalAlignment="Left" Margin="438,30,0,0" VerticalAlignment="Top" Width="142" Click="btnGraficar_Click" />
+        <ScrollViewer x:Name="scrContenedor" HorizontalAlignment="Left" Height="246" Margin="88,147,0,0" VerticalAlignment="Top" Width="840" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.RowSpan="2">
+            <Grid>
+                <Polyline Stroke="CornflowerBlue" StrokeThickness="2" Name="plnGrafica"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeX"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" Name="plnEjeY"/>
+            </Grid>
+        </ScrollViewer>
+        <TextBlock x:Name="lblAmplitudMaximaY" HorizontalAlignment="Left" Margin="56,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblAmplitudMaximaNegativaY" HorizontalAlignment="Left" Margin="56,2,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock x:Name="lblAmplitud0" HorizontalAlignment="Left" Margin="56,256,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <ScrollViewer x:Name="scrContenedor_Resultado" HorizontalAlignment="Left" Height="246" Margin="88,77,0,0" VerticalAlignment="Top" Width="840" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.Row="1">
+            <Grid>
+                <Polyline Stroke="CornflowerBlue" StrokeThickness="2" x:Name="plnGraficaResultado"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" x:Name="plnEjeXResultado"/>
+                <Polyline Stroke="Black" StrokeThickness="0.5" x:Name="plnEjeYResultado"/>
+            </Grid>
+        </ScrollViewer>
+        <TextBlock x:Name="lblAmplitudMaximaY_Resultado" HorizontalAlignment="Left" Margin="56,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock x:Name="lblAmplitudMaximaNegativaY_Resultado" HorizontalAlignment="Left" Margin="56,261,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock x:Name="lblAmplitud0_Copy" HorizontalAlignment="Left" Margin="56,171,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button Content="Transformada de Fourier" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click"/>
+        <TextBlock x:Name="lblFrecuenciaFundamental" HorizontalAlignment="Left" Margin="960,281,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1" FontSize="22"/>
+        <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="19,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="383"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,80,0,0" TextWrapping="Wrap" Text="Ruta de archivo:" VerticalAlignment="Top"/>
+        <Button x:Name="btnExaminar" Content="Examinar" HorizontalAlignment="Left" Margin="420,105,0,0" VerticalAlignment="Top" Width="75" Click="btnExaminar_Click"/>
+        <TextBlock x:Name="lblSegundaFrecuenciaFundamental" HorizontalAlignment="Left" Margin="960,171,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Row="1" FontSize="22" RenderTransformOrigin="0.417,-1.379"/>
+
+
+    </Grid>
+</Window>
