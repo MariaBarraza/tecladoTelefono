@@ -203,26 +203,26 @@ namespace GraficadorSeñales
                 lblFrecuenciaFundamental.Text = Math.Ceiling(frecuenciaFundamental).ToString() + " Hz";
                 lblSegundaFrecuenciaFundamental.Text = Math.Ceiling(segundaFrecuenciaFundamental).ToString() + " Hz";
 
-                if (Math.Ceiling(frecuenciaFundamental)<=698 && Math.Ceiling(segundaFrecuenciaFundamental)<=1209)
+                if (Math.Ceiling(frecuenciaFundamental) == 698 && Math.Ceiling(segundaFrecuenciaFundamental) == 1209)
                 {
                     lblNumeroTecla.Text = "1";
                 }else
-                if (Math.Ceiling(frecuenciaFundamental) <= 698 && Math.Ceiling(segundaFrecuenciaFundamental) <= 1338)
+                if (Math.Ceiling(frecuenciaFundamental) == 698 && Math.Ceiling(segundaFrecuenciaFundamental) == 1338)
                 {
                     lblNumeroTecla.Text = "2";
                 }
                 else
-                  if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 698)
+                  if (Math.Ceiling(frecuenciaFundamental) == 1478 && Math.Ceiling(segundaFrecuenciaFundamental) == 698)
                 {
                     lblNumeroTecla.Text = "3";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 772)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1209 && Math.Ceiling(segundaFrecuenciaFundamental) == 772)
                 {
                     lblNumeroTecla.Text = "4";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1338 && Math.Ceiling(segundaFrecuenciaFundamental) <= 772)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1338 && Math.Ceiling(segundaFrecuenciaFundamental) == 772)
                 {
                     lblNumeroTecla.Text = "5";
                 }
@@ -232,32 +232,32 @@ namespace GraficadorSeñales
                     lblNumeroTecla.Text = "6";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 852)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1209 && Math.Ceiling(segundaFrecuenciaFundamental) == 852)
                 {
                     lblNumeroTecla.Text = "7";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 852 && Math.Ceiling(segundaFrecuenciaFundamental) <= 1338)
+                 if (Math.Ceiling(frecuenciaFundamental) == 852 && Math.Ceiling(segundaFrecuenciaFundamental) == 1338)
                 {
                     lblNumeroTecla.Text = "8";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 852)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1478 && Math.Ceiling(segundaFrecuenciaFundamental) == 852)
                 {
                     lblNumeroTecla.Text = "9";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1209 && Math.Ceiling(segundaFrecuenciaFundamental) == 940)
                 {
                     lblNumeroTecla.Text = "*";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1338 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1338 && Math.Ceiling(segundaFrecuenciaFundamental) == 940)
                 {
                     lblNumeroTecla.Text = "0";
                 }
                 else
-                 if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                 if (Math.Ceiling(frecuenciaFundamental) == 1478 && Math.Ceiling(segundaFrecuenciaFundamental) == 940)
                 {
                     lblNumeroTecla.Text = "#";
                 }
