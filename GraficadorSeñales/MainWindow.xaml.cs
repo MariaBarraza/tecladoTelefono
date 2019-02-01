@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using Microsoft.Win32; //aqui se tienen cosas exclusivas de la interfaz de windows
 using NAudio.Wave;
@@ -161,18 +162,15 @@ namespace GraficadorSeñales
                 double segundoValorMaximo = 0;
                 int indiceMaximo = 0;
                 int indiceActual = 0;
+                int segundoIndiceActual = 0;
                 int segundoIndiceMaximo = 0;
+
                 foreach (Muestra muestra in transformada.Muestras)
                 {
                     if(muestra.Y > valorMaximo)
                     {
                         valorMaximo = muestra.Y;
                         indiceMaximo = indiceActual;
-                    }
-                    else if(muestra.Y > segundoValorMaximo && muestra.Y < valorMaximo) 
-                    {
-                        segundoValorMaximo = muestra.Y;
-                        segundoIndiceMaximo = indiceActual;
                     }
                     indiceActual++;
                     if(indiceActual > (double)transformada.Muestras.Count / 2.0)
@@ -181,13 +179,90 @@ namespace GraficadorSeñales
                     }
                 }
 
+                foreach (Muestra muestra in transformada.Muestras)
+                {
+                    if (muestra.Y > segundoValorMaximo && muestra.Y < valorMaximo)
+                    {
+                        segundoValorMaximo = muestra.Y;
+                        segundoIndiceMaximo = segundoIndiceActual;
+                    }
+                    segundoIndiceActual++;
+                    if (segundoIndiceActual > (double)transformada.Muestras.Count / 2.0)
+                    {
+                        break;
+                    }
+                }
+
 
                 //calcular frecuencia fundamental
                 double frecuenciaFundamental = (double)indiceMaximo * señal.FrecuenciaMuestreo / (double)transformada.Muestras.Count;
-                lblFrecuenciaFundamental.Text = frecuenciaFundamental.ToString() + " Hz";
+               
 
                 double segundaFrecuenciaFundamental = (double)segundoIndiceMaximo * señal.FrecuenciaMuestreo / (double)transformada.Muestras.Count;
-                lblSegundaFrecuenciaFundamental.Text = segundaFrecuenciaFundamental.ToString() + " Hz";
+  
+                lblFrecuenciaFundamental.Text = Math.Ceiling(frecuenciaFundamental).ToString() + " Hz";
+                lblSegundaFrecuenciaFundamental.Text = Math.Ceiling(segundaFrecuenciaFundamental).ToString() + " Hz";
+
+                if (Math.Ceiling(frecuenciaFundamental)<=698 && Math.Ceiling(segundaFrecuenciaFundamental)<=1209)
+                {
+                    lblNumeroTecla.Text = "1";
+                }else
+                if (Math.Ceiling(frecuenciaFundamental) <= 698 && Math.Ceiling(segundaFrecuenciaFundamental) <= 1338)
+                {
+                    lblNumeroTecla.Text = "2";
+                }
+                else
+                  if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 698)
+                {
+                    lblNumeroTecla.Text = "3";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 772)
+                {
+                    lblNumeroTecla.Text = "4";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1338 && Math.Ceiling(segundaFrecuenciaFundamental) <= 772)
+                {
+                    lblNumeroTecla.Text = "5";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 772)
+                {
+                    lblNumeroTecla.Text = "6";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 852)
+                {
+                    lblNumeroTecla.Text = "7";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 852 && Math.Ceiling(segundaFrecuenciaFundamental) <= 1338)
+                {
+                    lblNumeroTecla.Text = "8";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 852)
+                {
+                    lblNumeroTecla.Text = "9";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1209 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                {
+                    lblNumeroTecla.Text = "*";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1338 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                {
+                    lblNumeroTecla.Text = "0";
+                }
+                else
+                 if (Math.Ceiling(frecuenciaFundamental) <= 1478 && Math.Ceiling(segundaFrecuenciaFundamental) <= 940)
+                {
+                    lblNumeroTecla.Text = "#";
+                }
+
+
             }
 
             plnEjeXResultado.Points.Clear();
